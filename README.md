@@ -26,8 +26,8 @@ To do:
   - For example, if the date is currently 05/09/22:
   - Job start time 05/09/22 09:00 = Today
   - Job start time 05/09/22 18:30 = Today
-  - Job start time 06/09/22 09:00 = Wednesday
-  - Job start time 06/09/22 18:30 = Wednesday
+  - Job start time 06/09/22 09:00 = Tuesday
+  - Job start time 06/09/22 18:30 = Tuesday
 - The job card should show `now` if the job start time is the same date and hour as the current date and hour
   - For example, if it is currently 05/09/22 09:05:
   - Job start time 05/09/22 09:00 = now
