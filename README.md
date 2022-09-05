@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# MAV Tech Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+The task is to build the job card list as shown in designs in Figma. 
+Please approach the setup of the app as you would with a production app.
 
-In the project directory, you can run:
+The required font `Hind` can be found in `web\src\fonts`.
 
-### `npm start`
+The required SVGs can be found in `web\src\svgs`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The required images for each job can be found in `web\public\jobs`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The web project uses Create React App and the default files have been left in place as they demonstrate
+how to import styles and SVGs and a basic test. Please feel free to remove these.
 
-### `npm test`
+Figma:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://www.figma.com/file/ug5zBFOzZOU2b1K2sGHEMV/MAV-tech-test
 
-### `npm run build`
+To do:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Consume the jobs from the `/jobs` endpoint and render the list of job cards
+- The styles for the app should be responsive and work across desktop and mobile
+- The job card should show `Today` if the job start date is the same as the current date
+  - For example, if the date is currently 05/09/22:
+  - Job start time 05/09/22 09:00 = Today
+  - Job start time 05/09/22 18:30 = Today
+  - Job start time 06/09/22 09:00 = Wednesday
+  - Job start time 06/09/22 18:30 = Wednesday
+- The job card should show `now` if the job start time is the same date and hour as the current date and hour
+  - For example, if it is currently 05/09/22 09:05:
+  - Job start time 05/09/22 09:00 = now
+  - Job start time 05/09/22 09:59 = now
+  - Job start time 05/09/22 10:00 = 10:00
+  - Job start time 05/09/22 08:59 = 08:59
+  - Job start time 06/09/22 09:00 = 09:00 
+  - Job start time 06/09/22 09:59 = 09:59
+- Add test coverage
+- Time should be tested, i.e providing test cases for `Today` and `Any time between now and 21:00`
+- Please review the code for the API, there are various smells and design issues that could be improved which we can discuss during the follow-up call.
+    - What issues can you see?
+    - How would you improve them?
+    - How would you approach things if this were a production app?
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the API:
 
-### `npm run eject`
+`cd api`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm start`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The API has a jobs endpoint that returns the array of jobs found in the designs:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`visit http://localhost:3001/jobs`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To run the website:
 
-## Learn More
+`cd web`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`npm start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`visit http://localhost:3000/`
