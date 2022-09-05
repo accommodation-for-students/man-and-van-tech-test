@@ -49,6 +49,8 @@ To run the API:
 
 `cd api`
 
+`npm install`
+
 `npm start`
 
 The API has a jobs endpoint that returns the array of jobs found in the designs:
@@ -58,6 +60,8 @@ The API has a jobs endpoint that returns the array of jobs found in the designs:
 To run the website:
 
 `cd web`
+
+`npm install`
 
 `npm start`
 
